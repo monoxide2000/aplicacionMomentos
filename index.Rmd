@@ -1,0 +1,74 @@
+---
+title: "Aplicaciones de los momentos de una distribución"
+subtitle: "La entropia diferencial"
+author: "Julio César Ramírez Pacheco"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+    cards: false
+---
+
+```{r setup, include=FALSE}
+#library(highcharter)
+# invalidate cache when the tufte version changes
+```
+
+
+
+
+# Introducción
+
+Los momentos de una distribución de probabilidad, la cual recordemos puede ser de dos tipos: con respecto al origen y centrales, se representan como:
+$$
+\mathbb{E}(X^n) = \int_{-\infty}^{\infty}{x^n f(x)dx}\\
+\mathbb{E}([X-\mu]^n)= \int_{-\infty}^{\infty}{(x-\mu)^n f(x)dx}
+$$
+De igual forma, los momentos se pueden calcular para una función de una variable aleatoria y pueden tomar la siguiente forma:
+$$
+\mathbb{E}(g(X))= \int_{-\infty}^{\infty}{g(x)f(x)dx},
+$$
+donde $f(x)$ es la densidad de probabilidad y $g(x)$ es la la función sobre la variable aleatoria $X$. 
+Una función de importancia práctica es la llamada entropía diferencial, la cual no es más que el momento aplicado a la función $g(x)=\log(f(x))$. Es decir, la entropía diferencial halla el logaritmo a la función de densidad.La entropía diferencial puede aplicarse a variables aleatorias continuas o discretas, ahora, sólo nos concentraremos en el cálculo de la entropía diferencia $h(X)$ de algunas densidades continuas conocidas. La entropía diferencial de una variable aleatoria $X$ con función de densidad $f(x)$ está entonces dada por la siguiente ecuación:
+$$
+h(X) = -\int_{-\infty}^{+\infty}{f(x) \log(f(x)) \, dx}
+$$
+
+Y por lo tanto si queremos hallar la entropía diferencial para la variable aleatoria uniforme $\mathcal{U}(a,b)$  que está definida como:
+
+$$\mathcal{U}(a,b) = \begin{cases}
+\frac{1}{b-a} & a < x < b\\
+0 & \mbox{en otro caso}
+\end{cases}
+$$
+
+entonces, el cálculo de su entropía diferencial debe ser efectuado de la siguiente forma; $h(\mathcal{U}(a,b)) = - \int_a^b{\frac{1}{b-a}\log(\frac{1}{b-a}), \, dx}$ y por lo tando, desarrollando esta ecuación, su entropía diferencial está dada por:
+
+$$
+\begin{align}
+h(X) = & -\int_{a}^b{\left(\frac{1}{b-a}\right) \log(\frac{1}{b-a}) \, dx}\\
+ = & -\left(\frac{1}{b-a}\right) \log(\frac{1}{b-a}) \times \int_a^b{dx}\\
+ = & - \left(\frac{1}{b-a}\right) \log(\frac{1}{b-a})\times (b-a)\\
+= & - \log(\frac{1}{b-a}) = \log(b-a)
+\end{align}
+$$
+
+Por lo tanto $h(\mathcal{U}(a,b)) = \log(b-a)$. A continuación, como actividad se hallará la entropía diferencial para diferentes variables aleatorias continuas conocidas.
+
+
+## Ejercicios.
+
+Una vez visto la forma de calcular la entropía para densidades continuas, el turno será para calcular la entropía diferencial de las siguientes densidades:
+
+
+1. $$f(x) = \begin{cases} \lambda \mbox{e}^{-\lambda x} & x \ge 0\\ 
+0 & \mbox{en otro caso}\end{cases}$$
+2. $$f(x) = \begin{cases}\frac{1}{2}\lambda \mbox{e}^{-\lambda |x|} & -\infty < x < \infty\\
+\end{cases}$$
+3. $$f(x) = \frac{1}{\sigma \sqrt{2 \pi}}\mbox{e}^{-(x-\mu)^2/2\sigma^2}, -\infty < x < \infty, \, \sigma >0$$
+4. $$f(x) = \begin{cases}\frac{1}{A\sqrt{A^2-x^2}} & -A < x < A\\
+0 & \mbox{en otro caso}\end{cases}, \; \; A>0$$
+
+Nota: pueden resolver la actividad en su cuaderno y posteriormente insertar en el HTML la imagen de sus resultados.
+
+Atte. Dr.Julio César Ramírez Pacheco
